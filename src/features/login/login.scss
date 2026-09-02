@@ -6,21 +6,9 @@ $border: #d7d7d7;
 $divider: #e5e5e5;
 $danger: #dc3545;
 
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
 .login-page {
   background: #fff;
 }
-
-
-/* =========================
-   IMAGE
-========================= */
 
 .hero-panel {
   position: relative;
@@ -49,21 +37,11 @@ $danger: #dc3545;
   line-height: 1;
 }
 
-
-/* =========================
-   FORM PANEL
-========================= */
-
 .form-panel {
   position: relative;
   min-height: 100vh;
   background: #fff;
 }
-
-
-/* =========================
-   TOP BAR
-========================= */
 
 .top-bar {
   position: absolute;
@@ -115,11 +93,6 @@ $danger: #dc3545;
   }
 }
 
-
-/* =========================
-   FORM
-========================= */
-
 .form-wrapper {
   min-height: 100vh;
   padding: 90px 40px 50px;
@@ -144,11 +117,6 @@ $danger: #dc3545;
   color: $text;
   font-size: 11px;
 }
-
-
-/* =========================
-   INPUTS
-========================= */
 
 .input-box {
   overflow: hidden;
@@ -201,11 +169,6 @@ $danger: #dc3545;
   }
 }
 
-
-/* =========================
-   PASSWORD
-========================= */
-
 .password-field {
   padding-right: 55px;
 }
@@ -230,11 +193,6 @@ $danger: #dc3545;
   }
 }
 
-
-/* =========================
-   VALIDATION
-========================= */
-
 .error {
   display: block;
   margin-top: 5px;
@@ -242,11 +200,6 @@ $danger: #dc3545;
   color: $danger;
   font-size: 9px;
 }
-
-
-/* =========================
-   OPTIONS
-========================= */
 
 .options {
   margin: 14px 0 22px;
@@ -279,11 +232,6 @@ $danger: #dc3545;
   }
 }
 
-
-/* =========================
-   BUTTON
-========================= */
-
 .login-btn {
   min-height: 42px;
   padding: 10px 16px;
@@ -314,11 +262,6 @@ $danger: #dc3545;
   }
 }
 
-
-/* =========================
-   CREATE ACCOUNT
-========================= */
-
 .create-account {
   margin: 12px 0 0;
 
@@ -335,11 +278,6 @@ $danger: #dc3545;
     }
   }
 }
-
-
-/* =========================
-   RESPONSIVE
-========================= */
 
 @media (max-width: 991.98px) {
 
