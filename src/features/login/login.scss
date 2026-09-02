@@ -1,78 +1,52 @@
-/* =========================
-   VARIABLES
-========================= */
-
 $blue: #0866ff;
 $blue-hover: #005bea;
 $black: #111;
 $text: #777;
 $border: #d7d7d7;
-$divider: #ddd;
+$divider: #e5e5e5;
+$danger: #dc3545;
 
 
-/* =========================
-   COMMON
-========================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
 .login-page {
-  min-height: 100vh;
   background: #fff;
 }
 
-.login-layout {
-  display: flex;
-  min-height: 100vh;
-}
-
-.help-link,
-.options,
-.create-account {
-  font-size: 10px;
-  color: $black;
-}
-
-.help-link,
-.options a,
-.create-account a {
-  text-decoration: none;
-}
-
 
 /* =========================
-   IMAGE PANEL
+   IMAGE
 ========================= */
 
 .hero-panel {
   position: relative;
-
-  width: 50%;
-  min-height: 100vh;
-
+  height: 100vh;
   overflow: hidden;
-
   background: #eee;
 }
 
 .hero-image {
   display: block;
-
   width: 100%;
   height: 100%;
-
   object-fit: cover;
+  object-position: center;
 }
 
 .hero-brand {
   position: absolute;
-
   top: 30px;
-  left: 38px;
-
+  left: 40px;
   z-index: 2;
 
   color: $black;
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 700;
+  line-height: 1;
 }
 
 
@@ -82,10 +56,7 @@ $divider: #ddd;
 
 .form-panel {
   position: relative;
-
-  width: 50%;
   min-height: 100vh;
-
   background: #fff;
 }
 
@@ -96,82 +67,87 @@ $divider: #ddd;
 
 .top-bar {
   position: absolute;
-
-  top: 18px;
-  right: 22px;
-
-  z-index: 5;
-
-  display: flex;
-  align-items: center;
-
-  gap: 12px;
+  top: 20px;
+  right: 40px;
+  z-index: 10;
 }
 
 .help-link {
   color: #666;
+  font-size: 10px;
+  text-decoration: none;
 
   span {
     color: $black;
     font-weight: 600;
   }
+
+  &:hover {
+    color: $blue;
+  }
 }
 
 .language-btn {
-  padding: 5px 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+
+  min-width: 60px;
+  padding: 7px 9px;
 
   border: 1px solid #aaa;
-  border-radius: 4px;
+  border-radius: 5px;
 
   background: #fff;
   color: $black;
 
-  font-size: 8px;
-
+  font-size: 9px;
   cursor: pointer;
+
+  &:hover {
+    border-color: #777;
+  }
+
+  &:focus {
+    border-color: $blue;
+    box-shadow: 0 0 0 2px rgba(8, 102, 255, 0.1);
+  }
 }
 
 
 /* =========================
-   FORM WRAPPER
+   FORM
 ========================= */
 
 .form-wrapper {
   min-height: 100vh;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  padding: 70px 40px 40px;
+  padding: 90px 40px 50px;
 }
 
 .login-form {
   width: 100%;
-  max-width: 490px;
+  max-width: 420px;
 
   h2 {
-    margin: 0 0 6px;
+    margin: 0 0 7px;
 
     color: #171717;
-
-    font-size: 17px;
+    font-size: 24px;
     font-weight: 700;
   }
 }
 
 .subtitle {
-  margin: 0 0 26px;
+  margin: 0 0 25px;
 
   color: $text;
-
-  font-size: 12px;
-  line-height: 1.5;
+  font-size: 11px;
 }
 
 
 /* =========================
-   INPUT BOX
+   INPUTS
 ========================= */
 
 .input-box {
@@ -179,21 +155,18 @@ $divider: #ddd;
 
   border: 1px solid $border;
   border-radius: 7px;
-
   background: #fff;
 
   &:focus-within {
     border-color: #2878ff;
-    box-shadow: 0 0 0 1px #2878ff;
+    box-shadow: 0 0 0 2px rgba(40, 120, 255, 0.1);
   }
 }
 
 .field {
   position: relative;
-
-  height: 58px;
-
-  padding: 7px 14px 0;
+  min-height: 58px;
+  padding: 7px 14px 8px;
 
   &:not(:last-child) {
     border-bottom: 1px solid $divider;
@@ -201,28 +174,30 @@ $divider: #ddd;
 
   label {
     display: block;
-
     margin: 0;
 
     color: $text;
-
-    font-size: 11px;
+    font-size: 10px;
     line-height: 16px;
   }
 
   input {
+    display: block;
     width: 100%;
-
     padding: 4px 0 0;
 
     border: 0;
     outline: 0;
 
     background: transparent;
-
     color: $black;
 
-    font-size: 11px;
+    font-family: inherit;
+    font-size: 12px;
+
+    &::placeholder {
+      color: #aaa;
+    }
   }
 }
 
@@ -233,43 +208,38 @@ $divider: #ddd;
 
 .password-field {
   padding-right: 55px;
+}
 
-  button {
-    position: absolute;
+.password-toggle {
+  position: absolute;
+  top: 50%;
+  right: 14px;
+  transform: translateY(-20%);
 
-    top: 30px;
-    right: 14px;
+  padding: 0;
+  border: 0;
 
-    padding: 0;
+  background: transparent;
+  color: $black;
 
-    border: 0;
+  font-size: 10px;
+  cursor: pointer;
 
-    background: transparent;
-
-    color: $black;
-
-    font-size: 10px;
-
-    cursor: pointer;
-
-    &:hover {
-      color: $blue;
-    }
+  &:hover {
+    color: $blue;
   }
 }
 
 
 /* =========================
-   ERROR
+   VALIDATION
 ========================= */
 
 .error {
   display: block;
-
   margin-top: 5px;
 
-  color: #dc3545;
-
+  color: $danger;
   font-size: 9px;
 }
 
@@ -279,36 +249,29 @@ $divider: #ddd;
 ========================= */
 
 .options {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
   margin: 14px 0 22px;
 
-  font-weight: 600;
+  color: $black;
+  font-size: 10px;
+  font-weight: 500;
 
   label {
-    display: flex;
-    align-items: center;
-
-    gap: 6px;
-
     margin: 0;
-
-    white-space: nowrap;
+    cursor: pointer;
   }
 
   input {
     width: 14px;
     height: 14px;
-
     margin: 0;
+
+    accent-color: $blue;
+    cursor: pointer;
   }
 
   a {
     color: $black;
-
-    white-space: nowrap;
+    text-decoration: none;
 
     &:hover {
       color: $blue;
@@ -318,12 +281,12 @@ $divider: #ddd;
 
 
 /* =========================
-   LOGIN BUTTON
+   BUTTON
 ========================= */
 
 .login-btn {
-  width: 100%;
-  height: 42px;
+  min-height: 42px;
+  padding: 10px 16px;
 
   border: 0;
   border-radius: 6px;
@@ -331,12 +294,11 @@ $divider: #ddd;
   background: $blue;
   color: #fff;
 
+  font-family: inherit;
   font-size: 10px;
   font-weight: 600;
 
   cursor: pointer;
-
-  transition: background-color 0.2s ease;
 
   &:hover {
     background: $blue-hover;
@@ -344,6 +306,11 @@ $divider: #ddd;
 
   &:active {
     transform: translateY(1px);
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(8, 102, 255, 0.15);
   }
 }
 
@@ -355,13 +322,13 @@ $divider: #ddd;
 .create-account {
   margin: 12px 0 0;
 
-  text-align: center;
-
   color: $text;
+  font-size: 10px;
 
   a {
     color: $black;
     font-weight: 600;
+    text-decoration: none;
 
     &:hover {
       color: $blue;
@@ -370,189 +337,60 @@ $divider: #ddd;
 }
 
 
-/* =========================================================
-   LAPTOP
-   992px - 1199px
-========================================================= */
+/* =========================
+   RESPONSIVE
+========================= */
 
-@media (max-width: 1199px) {
+@media (max-width: 991.98px) {
 
   .hero-panel {
-    width: 45%;
+    height: 300px;
   }
 
   .form-panel {
-    width: 55%;
+    min-height: auto;
   }
 
   .form-wrapper {
-    padding-left: 35px;
-    padding-right: 35px;
+    min-height: auto;
+    padding: 60px 32px 50px;
   }
 
   .login-form {
-    max-width: 400px;
-  }
-}
-
-
-/* =========================================================
-   TABLET LANDSCAPE
-   768px - 991px
-
-   Keep image + login side by side.
-========================================================= */
-
-@media (min-width: 768px) and (max-width: 991px) {
-
-  .login-layout {
-    flex-direction: row;
-  }
-
-  .hero-panel {
-    width: 42%;
-    min-height: 100vh;
-  }
-
-  .form-panel {
-    width: 58%;
-    min-height: 100vh;
-  }
-
-  .hero-image {
-    object-position: center center;
-  }
-
-  .hero-brand {
-    top: 25px;
-    left: 25px;
-
-    font-size: 19px;
-  }
-
-  .top-bar {
-    top: 18px;
-    right: 20px;
-
-    gap: 8px;
-  }
-
-  .help-link {
-    font-size: 8px;
-  }
-
-  .language-btn {
-    padding: 5px 7px;
-    font-size: 8px;
-  }
-
-  .form-wrapper {
-    min-height: 100vh;
-
-    padding: 70px 30px 40px;
-  }
-
-  .login-form {
-    max-width: 430px;
+    max-width: 70%;
+    margin: 0 auto;
 
     h2 {
-      font-size: 22px;
+      font-size: 23px;
     }
   }
 
-  .subtitle {
-    margin-bottom: 22px;
-
-    font-size: 11px;
-  }
-
-  .field {
-    height: 62px;
-
-    padding: 8px 14px 0;
-
-    label {
-      font-size: 10px;
-    }
-
-    input {
-      padding-top: 5px;
-
-      font-size: 13px;
-    }
-  }
-
-  .password-field {
-    padding-right: 55px;
-
-    button {
-      top: 32px;
-      right: 14px;
-
-      font-size: 10px;
-    }
-  }
-
-  .options {
-    margin: 14px 0 22px;
-
-    font-size: 10px;
+  .field input {
+    font-size: 14px;
   }
 
   .login-btn {
-    height: 46px;
-
+    min-height: 46px;
     font-size: 12px;
-  }
-
-  .create-account {
-    font-size: 10px;
   }
 }
 
 
-/* =========================================================
-   TABLET PORTRAIT / LARGE PHONE
-   576px - 767px
-
-   Image on top, but kept compact.
-========================================================= */
-
-@media (min-width: 576px) and (max-width: 767px) {
-
-  .login-layout {
-    flex-direction: column;
-  }
+@media (max-width: 575.98px) {
 
   .hero-panel {
-    width: 100%;
-
-    height: 190px;
-    min-height: 190px;
-  }
-
-  .hero-image {
-    object-position: center 40%;
+    height: 220px;
   }
 
   .hero-brand {
-    top: 18px;
+    top: 20px;
     left: 22px;
-
     font-size: 19px;
-  }
-
-  .form-panel {
-    width: 100%;
-
-    min-height: auto;
   }
 
   .top-bar {
     top: 15px;
-    right: 20px;
-
-    gap: 8px;
+    right: 18px;
   }
 
   .help-link {
@@ -560,390 +398,50 @@ $divider: #ddd;
   }
 
   .language-btn {
-    padding: 5px 7px;
-
+    min-width: 56px;
+    padding: 6px 7px;
     font-size: 8px;
   }
 
   .form-wrapper {
-    min-height: auto;
-
-    padding: 58px 30px 45px;
+    padding: 45px 20px 40px;
   }
 
   .login-form {
-    max-width: 500px;
-
     h2 {
-      font-size: 22px;
+      font-size: 21px;
     }
   }
 
   .subtitle {
     margin-bottom: 20px;
-
-    font-size: 11px;
-  }
-
-  .field {
-    height: 60px;
-
-    padding: 7px 14px 0;
-
-    label {
-      font-size: 10px;
-    }
-
-    input {
-      padding-top: 4px;
-
-      font-size: 14px;
-    }
-  }
-
-  .password-field {
-    padding-right: 55px;
-
-    button {
-      top: 30px;
-      right: 14px;
-
-      font-size: 10px;
-    }
-  }
-
-  .options {
-    margin: 13px 0 20px;
-
     font-size: 10px;
   }
 
-  .login-btn {
-    height: 46px;
-
-    font-size: 12px;
-  }
-
-  .create-account {
-    margin-top: 13px;
-
-    font-size: 10px;
-  }
-}
-
-
-/* =========================================================
-   MOBILE
-   0px - 575px
-
-   Keep the image small so the form is immediately visible.
-========================================================= */
-
-@media (max-width: 575px) {
-
-  .login-layout {
-    flex-direction: column;
-
-    min-height: 100svh;
-  }
-
-  /* -------------------------
-     Compact hero
-  ------------------------- */
-
-  .hero-panel {
-    width: 100%;
-
-    height: 150px;
-    min-height: 150px;
-  }
-
-  .hero-image {
-    object-position: center 42%;
-  }
-
-  .hero-brand {
-    top: 16px;
-    left: 18px;
-
-    font-size: 18px;
-  }
-
-
-  /* -------------------------
-     Form panel
-  ------------------------- */
-
-  .form-panel {
-    width: 100%;
-
-    min-height: auto;
-  }
-
-
-  /* -------------------------
-     Top bar
-  ------------------------- */
-
-  .top-bar {
-    top: 12px;
-    right: 14px;
-
-    gap: 6px;
-  }
-
-  .help-link {
-    font-size: 7px;
-  }
-
-  .language-btn {
-    padding: 4px 6px;
-
-    font-size: 7px;
-  }
-
-
-  /* -------------------------
-     Form
-  ------------------------- */
-
-  .form-wrapper {
-    min-height: auto;
-
-    padding: 48px 18px 28px;
-  }
-
-  .login-form {
-
-    h2 {
-      margin-bottom: 4px;
-
-      font-size: 20px;
-    }
-  }
-
-  .subtitle {
-    margin-bottom: 17px;
-
-    font-size: 9px;
-    line-height: 1.4;
-  }
-
-
-  /* -------------------------
-     Inputs
-  ------------------------- */
-
-  .input-box {
-    border-radius: 7px;
-  }
-
   .field {
-    height: 56px;
-
-    padding: 6px 12px 0;
+    min-height: 59px;
+    padding: 7px 13px 8px;
 
     label {
       font-size: 9px;
-      line-height: 15px;
     }
 
     input {
-      padding-top: 3px;
-
       font-size: 13px;
     }
   }
 
-  .password-field {
-    padding-right: 50px;
-
-    button {
-      top: 28px;
-      right: 12px;
-
-      font-size: 9px;
-    }
-  }
-
-
-  /* -------------------------
-     Errors
-  ------------------------- */
-
-  .error {
-    margin-top: 4px;
-
-    font-size: 8px;
-  }
-
-
-  /* -------------------------
-     Options
-  ------------------------- */
-
   .options {
-    margin: 11px 0 17px;
-
-    font-size: 8px;
-
-    label {
-      gap: 4px;
-    }
-
-    input {
-      width: 13px;
-      height: 13px;
-    }
+    margin: 12px 0 19px;
+    font-size: 9px;
   }
-
-
-  /* -------------------------
-     Login button
-  ------------------------- */
 
   .login-btn {
-    height: 43px;
-
-    border-radius: 5px;
-
+    min-height: 44px;
     font-size: 11px;
   }
 
-
-  /* -------------------------
-     Create account
-  ------------------------- */
-
   .create-account {
-    margin-top: 10px;
-
     font-size: 9px;
-  }
-}
-
-
-/* =========================================================
-   VERY SMALL PHONES
-   0px - 380px
-========================================================= */
-
-@media (max-width: 380px) {
-
-  .hero-panel {
-    height: 125px;
-    min-height: 125px;
-  }
-
-  .hero-image {
-    object-position: center 40%;
-  }
-
-  .hero-brand {
-    top: 13px;
-    left: 15px;
-
-    font-size: 17px;
-  }
-
-
-  /* -------------------------
-     Top bar
-  ------------------------- */
-
-  .top-bar {
-    top: 10px;
-    right: 10px;
-
-    gap: 5px;
-  }
-
-  .help-link {
-    font-size: 6px;
-  }
-
-  .language-btn {
-    padding: 3px 5px;
-
-    font-size: 6px;
-  }
-
-
-  /* -------------------------
-     Form
-  ------------------------- */
-
-  .form-wrapper {
-    padding: 42px 15px 22px;
-  }
-
-  .login-form {
-
-    h2 {
-      font-size: 18px;
-    }
-  }
-
-  .subtitle {
-    margin-bottom: 14px;
-
-    font-size: 8px;
-  }
-
-
-  /* -------------------------
-     Inputs
-  ------------------------- */
-
-  .field {
-    height: 53px;
-
-    label {
-      font-size: 8px;
-    }
-
-    input {
-      font-size: 12px;
-    }
-  }
-
-  .password-field {
-
-    button {
-      top: 27px;
-
-      font-size: 8px;
-    }
-  }
-
-
-  /* -------------------------
-     Options
-  ------------------------- */
-
-  .options {
-    margin: 10px 0 15px;
-
-    font-size: 7px;
-
-    input {
-      width: 12px;
-      height: 12px;
-    }
-  }
-
-
-  /* -------------------------
-     Button
-  ------------------------- */
-
-  .login-btn {
-    height: 41px;
-
-    font-size: 10px;
-  }
-
-  .create-account {
-    font-size: 8px;
   }
 }

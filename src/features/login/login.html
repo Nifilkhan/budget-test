@@ -1,61 +1,89 @@
-<div class="login-page">
-  <div class="login-layout">
+<div class="login-page min-vh-100">
+
+  <div class="row g-0 min-vh-100">
 
     <!-- Image -->
-    <div class="hero-panel">
+    <div class="col-12 col-lg-6 hero-panel">
+
       <img
         src="8e1dc2ef141b657676a8f6d062735facc3857d47.jpg"
         alt="Person checking their budget on a phone"
         class="hero-image"
       />
 
-      <div class="hero-brand">Budget</div>
+      <div class="hero-brand">
+        Budget
+      </div>
+
     </div>
 
-    <!-- Form -->
-    <div class="form-panel">
 
-      <!-- Top right -->
-      <div class="top-bar">
+    <!-- Login -->
+    <div class="col-12 col-lg-6 form-panel">
+
+      <!-- Top actions -->
+      <div class="top-bar d-flex align-items-center gap-2">
+
         <a href="#" class="help-link">
-          Having Trouble? <span>Get Help</span>
+          Having trouble?
+          <span>Get help</span>
         </a>
 
         <div class="dropdown">
+
           <button
-            class="language-btn"
             type="button"
+            class="language-btn"
             data-bs-toggle="dropdown"
+            aria-expanded="false"
           >
-            🌐 Eng
-            <span>⌄</span>
+            <span>Eng</span>
+            <span><i class="bi bi-arrow-down"></i></span>
           </button>
 
           <ul class="dropdown-menu dropdown-menu-end">
-            <li><a class="dropdown-item" href="#">English</a></li>
-            <li><a class="dropdown-item" href="#">Hindi</a></li>
-            <li><a class="dropdown-item" href="#">Malayalam</a></li>
+            <li>
+              <a class="dropdown-item" href="#">English</a>
+            </li>
+
+            <li>
+              <a class="dropdown-item" href="#">Hindi</a>
+            </li>
+
+            <li>
+              <a class="dropdown-item" href="#">Malayalam</a>
+            </li>
           </ul>
+
         </div>
+
       </div>
 
+
       <!-- Form -->
-      <div class="form-wrapper">
+      <main class="form-wrapper d-flex justify-content-center align-items-center">
+
         <div class="login-form">
 
-          <h2>Login to Budget</h2>
+          <h2>Welcome back</h2>
 
           <p class="subtitle">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Login to continue managing your budget.
           </p>
 
-          <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
 
-            <!-- Email + Password -->
+          <form
+            [formGroup]="form"
+            (ngSubmit)="onSubmit()"
+            novalidate
+          >
+
+            <!-- Inputs -->
             <div class="input-box">
 
               <div class="field">
                 <label for="email">Email</label>
+
                 <input
                   id="email"
                   type="email"
@@ -65,7 +93,9 @@
                 />
               </div>
 
+
               <div class="field password-field">
+
                 <label for="password">Password</label>
 
                 <input
@@ -78,14 +108,18 @@
 
                 <button
                   type="button"
+                  class="password-toggle"
                   (click)="togglePasswordVisibility()"
                 >
                   {{ showPassword ? 'Hide' : 'Show' }}
                 </button>
+
               </div>
 
             </div>
 
+
+            <!-- Validation -->
             @if (submitted && f['email'].invalid) {
               <small class="error">
                 Enter a valid email address.
@@ -98,43 +132,59 @@
               </small>
             }
 
-            <!-- Options -->
-            <div class="options">
 
-              <label>
+            <!-- Options -->
+            <div class="options d-flex justify-content-between align-items-center">
+
+              <label class="d-flex align-items-center gap-2">
                 <input
                   type="checkbox"
                   formControlName="keepLoggedIn"
                 />
-                Keep me logged in
+
+                <span>Keep me logged in</span>
               </label>
 
-              <a href="#">
+              <a href="#" class="forgot-link">
                 Forgot password?
               </a>
 
             </div>
 
+
+            <!-- Login error -->
             @if (loginFailed) {
-              <div class="alert alert-danger py-2 small">
+              <div class="alert alert-danger py-2 mb-3">
                 Enter both an email and a password to continue.
               </div>
             }
 
-            <button class="login-btn" type="submit">
+
+            <!-- Login button -->
+            <button
+              type="submit"
+              class="login-btn w-100"
+            >
               Login
             </button>
 
-            <p class="create-account">
-              <a routerLink="/dashboard">Create new account</a>
+
+            <!-- Create account -->
+            <p class="create-account text-center">
+              Don't have an account?
+              <a routerLink="/dashboard">
+                Create new account
+              </a>
             </p>
 
           </form>
 
         </div>
-      </div>
+
+      </main>
 
     </div>
 
   </div>
+
 </div>
