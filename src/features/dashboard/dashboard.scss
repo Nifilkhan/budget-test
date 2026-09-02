@@ -1,0 +1,575 @@
+/* =========================
+   DASHBOARD
+========================= */
+
+.dashboard-layout {
+  min-height: 100vh;
+  background: #fff;
+}
+
+.dashboard-main {
+  min-width: 0;
+}
+
+/* =========================
+   MOBILE BRAND
+========================= */
+
+.mobile-brand {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+/* =========================
+   SIDEBAR
+========================= */
+
+.sidebar {
+  width: 250px;
+  min-height: 100vh;
+  flex-shrink: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  position: sticky;
+  top: 0;
+
+  padding: 32px 18px;
+
+  background: #fff;
+  border-right: 1px solid #ededed;
+}
+
+.sidebar-brand {
+  margin-bottom: 2rem;
+
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.sidebar-nav {
+  flex: 1;
+}
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 10px 12px;
+
+  border-left: 3px solid transparent;
+  border-radius: 6px;
+
+  color: var(--text-dark);
+  font-size: 0.9rem;
+  text-decoration: none;
+
+  transition: background-color 0.15s ease;
+
+  &:hover {
+    background-color: #f6f8ff;
+  }
+
+  &.active {
+    background-color: #eef2ff;
+    border-left-color: var(--brand-blue);
+    font-weight: 600;
+
+    i {
+      color: var(--brand-blue);
+    }
+  }
+}
+
+/* =========================
+   SIDEBAR USER
+========================= */
+
+.avatar-circle {
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+
+  overflow: hidden;
+  border-radius: 50%;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.user-name {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.user-phone {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.logout-btn {
+  width: 100%;
+
+  padding: 8px 0;
+
+  border: 0;
+  background: transparent;
+
+  text-align: left;
+
+  color: var(--text-dark);
+  font-size: 0.85rem;
+
+  cursor: pointer;
+
+  &:hover {
+    color: var(--brand-blue);
+  }
+}
+
+/* =========================
+   PAGE HEADER
+========================= */
+
+.page-title {
+  margin: 0 0 4px;
+
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.page-subtitle {
+  margin-bottom: 20px;
+
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* =========================
+   SUPPORT ALERT
+========================= */
+
+.support-alert {
+  width: fit-content;
+  max-width: 100%;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 5px 8px;
+
+  border: 1px solid #ededed;
+  border-radius: 22px;
+
+  font-size: 0.82rem;
+}
+
+.alert-icon {
+  width: 22px;
+  height: 22px;
+  min-width: 22px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background-color: #f5822a;
+  color: #fff;
+
+  font-size: 0.75rem;
+}
+
+.alert-text {
+  color: var(--text-dark);
+}
+
+.alert-view {
+  color: var(--text-dark);
+  font-weight: 600;
+  text-decoration: underline;
+  white-space: nowrap;
+}
+
+/* =========================
+   STAT CARDS
+========================= */
+
+.stat-card {
+  height: 100%;
+
+  padding: 18px 20px;
+
+  border-radius: 14px;
+
+  background-color: var(--brand-blue);
+  color: #fff;
+}
+
+.stat-card--teal {
+  background-color: var(--brand-teal);
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  opacity: 0.9;
+}
+
+.stat-value {
+  margin: 4px 0 8px;
+
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.stat-footer {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  font-size: 0.7rem;
+}
+
+.stat-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+
+  padding: 2px 3px 2px 8px;
+
+  border-radius: 20px;
+
+  background-color: #fff;
+  color: var(--text-dark);
+
+  font-weight: 700;
+}
+
+.stat-badge-icon {
+  width: 16px;
+  height: 16px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background-color: var(--text-dark);
+  color: #fff;
+
+  font-size: 0.7rem;
+}
+
+.stat-since {
+  color: #fff;
+  opacity: 0.9;
+}
+
+/* =========================
+   SECTION
+========================= */
+
+.section-title {
+  margin-bottom: 14px;
+
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+/* =========================
+   TABLE CARD
+========================= */
+
+.table-card {
+  width: 100%;
+
+  overflow: hidden;
+
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+
+  background-color: #fff;
+}
+
+/* =========================
+   TABLE SCROLL
+========================= */
+
+.table-responsive {
+  width: 100%;
+  max-width: 100%;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  -webkit-overflow-scrolling: touch;
+}
+
+/* =========================
+   TABLE
+========================= */
+
+.table {
+  width: 100%;
+  min-width: 850px;
+
+  margin-bottom: 0;
+
+  thead th {
+    padding: 13px 20px;
+
+    background-color: #f6f7fb;
+
+    border: 0;
+
+    color: var(--text-muted);
+
+    font-size: 0.7rem;
+    font-weight: 700;
+
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+
+    white-space: nowrap;
+  }
+
+  tbody td {
+    padding: 14px 20px;
+
+    color: var(--text-dark);
+    font-size: 0.85rem;
+
+    border-bottom: 1px solid var(--border-light);
+
+    white-space: nowrap;
+  }
+
+  tbody tr:last-child td {
+    border-bottom: 0;
+  }
+
+  /* Row hover */
+  tbody tr > td {
+    transition: background-color 0.15s ease;
+  }
+
+  tbody tr:hover > td {
+    background-color: #f2f7ff !important;
+  }
+}
+
+/* =========================
+   TABLE USER
+========================= */
+
+.user-cell-name {
+  font-weight: 700;
+}
+
+.user-cell-id {
+  margin-top: 2px;
+
+  color: var(--text-muted);
+  font-size: 0.72rem;
+}
+
+.user-secondary {
+  color: #1f1e1e;
+  font-weight: 500;
+}
+
+/* =========================
+   CATEGORY
+========================= */
+
+.category-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.category-main {
+  color: #222;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.category-sub {
+  color: #9ca3af;
+  font-size: 0.78rem;
+}
+
+/* =========================
+   VIEW LINK
+========================= */
+
+.row-view-link {
+  color: var(--text-dark);
+
+  font-size: 0.82rem;
+  font-weight: 500;
+
+  opacity: 0;
+
+  transition: opacity 0.15s ease;
+}
+
+.table tbody tr:hover .row-view-link {
+  opacity: 1;
+}
+
+/* =========================
+   VIEW ALL
+========================= */
+
+.view-all-btn {
+  padding: 7px 28px;
+
+  border: 1px solid var(--border-light);
+  border-radius: 20px;
+
+  background-color: #fff;
+  color: var(--text-dark);
+
+  font-size: 0.82rem;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  &:hover {
+    background-color: #f6f7fb;
+  }
+}
+
+/* =========================
+   TABLET / MOBILE SIDEBAR
+========================= */
+
+@media (max-width: 991.98px) {
+
+  .sidebar {
+    position: fixed;
+
+    top: 56px;
+    left: 0;
+
+    width: 250px;
+    height: calc(100vh - 56px);
+    min-height: 0;
+
+    padding: 25px 18px;
+
+    z-index: 1045;
+
+    transform: translateX(-100%);
+    transition: transform 0.25s ease;
+
+    box-shadow: 3px 0 12px rgba(0, 0, 0, 0.08);
+  }
+
+  .sidebar--open {
+    transform: translateX(0);
+  }
+
+  .sidebar-backdrop {
+    position: fixed;
+
+    inset: 56px 0 0;
+
+    background: rgba(0, 0, 0, 0.35);
+
+    z-index: 1040;
+  }
+
+  /* Support alert becomes full width */
+  .support-alert {
+    width: 100%;
+  }
+
+  /* Touch devices don't have hover */
+  .row-view-link {
+    opacity: 1;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 575.98px) {
+
+  .dashboard-main {
+    padding: 20px 15px !important;
+  }
+
+  .page-title {
+    font-size: 20px;
+  }
+
+  .page-subtitle {
+    font-size: 0.82rem;
+  }
+
+  .support-alert {
+    align-items: flex-start;
+
+    padding: 8px 10px;
+
+    font-size: 0.75rem;
+  }
+
+  .stat-card {
+    padding: 15px;
+  }
+
+  .stat-label {
+    font-size: 0.72rem;
+  }
+
+  .stat-value {
+    font-size: 1.45rem;
+  }
+
+  .stat-footer {
+    flex-wrap: wrap;
+  }
+
+  /*
+    IMPORTANT:
+    Table remains wide and scrolls horizontally.
+  */
+  .table {
+    min-width: 800px;
+  }
+
+  .table thead th {
+    padding: 12px 14px;
+    font-size: 0.68rem;
+  }
+
+  .table tbody td {
+    padding: 13px 14px;
+    font-size: 0.82rem;
+  }
+
+  .category-main {
+    font-size: 0.82rem;
+  }
+
+  .category-sub {
+    font-size: 0.75rem;
+  }
+}

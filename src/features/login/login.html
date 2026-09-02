@@ -1,0 +1,140 @@
+<div class="login-page">
+  <div class="login-layout">
+
+    <!-- Image -->
+    <div class="hero-panel">
+      <img
+        src="8e1dc2ef141b657676a8f6d062735facc3857d47.jpg"
+        alt="Person checking their budget on a phone"
+        class="hero-image"
+      />
+
+      <div class="hero-brand">Budget</div>
+    </div>
+
+    <!-- Form -->
+    <div class="form-panel">
+
+      <!-- Top right -->
+      <div class="top-bar">
+        <a href="#" class="help-link">
+          Having Trouble? <span>Get Help</span>
+        </a>
+
+        <div class="dropdown">
+          <button
+            class="language-btn"
+            type="button"
+            data-bs-toggle="dropdown"
+          >
+            🌐 Eng
+            <span>⌄</span>
+          </button>
+
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li><a class="dropdown-item" href="#">English</a></li>
+            <li><a class="dropdown-item" href="#">Hindi</a></li>
+            <li><a class="dropdown-item" href="#">Malayalam</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Form -->
+      <div class="form-wrapper">
+        <div class="login-form">
+
+          <h2>Login to Budget</h2>
+
+          <p class="subtitle">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          </p>
+
+          <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+
+            <!-- Email + Password -->
+            <div class="input-box">
+
+              <div class="field">
+                <label for="email">Email</label>
+                <input
+                  id="email"
+                  type="email"
+                  formControlName="email"
+                  placeholder="you@example.com"
+                  autocomplete="email"
+                />
+              </div>
+
+              <div class="field password-field">
+                <label for="password">Password</label>
+
+                <input
+                  id="password"
+                  [type]="showPassword ? 'text' : 'password'"
+                  formControlName="password"
+                  placeholder="••••••••"
+                  autocomplete="current-password"
+                />
+
+                <button
+                  type="button"
+                  (click)="togglePasswordVisibility()"
+                >
+                  {{ showPassword ? 'Hide' : 'Show' }}
+                </button>
+              </div>
+
+            </div>
+
+            @if (submitted && f['email'].invalid) {
+              <small class="error">
+                Enter a valid email address.
+              </small>
+            }
+
+            @if (submitted && f['password'].invalid) {
+              <small class="error">
+                Password must be at least 4 characters.
+              </small>
+            }
+
+            <!-- Options -->
+            <div class="options">
+
+              <label>
+                <input
+                  type="checkbox"
+                  formControlName="keepLoggedIn"
+                />
+                Keep me logged in
+              </label>
+
+              <a href="#">
+                Forgot password?
+              </a>
+
+            </div>
+
+            @if (loginFailed) {
+              <div class="alert alert-danger py-2 small">
+                Enter both an email and a password to continue.
+              </div>
+            }
+
+            <button class="login-btn" type="submit">
+              Login
+            </button>
+
+            <p class="create-account">
+              <a routerLink="/dashboard">Create new account</a>
+            </p>
+
+          </form>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>

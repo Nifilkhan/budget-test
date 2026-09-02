@@ -1,0 +1,38 @@
+/* You can add global styles to this file, and also import other style files */
+@use "bootstrap/scss/bootstrap";
+
+:root {
+  --brand-blue: #2f6bff;
+  --brand-blue-dark: #1e50d1;
+  --brand-teal: #17a688;
+  --text-dark: #1c2333;
+  --text-muted: #7a8299;
+  --border-light: #e7e9ee;
+  --bg-soft: #f6f7fb;
+}
+
+
+html, body {
+    height: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg-soft);
+  color: var(--text-dark);
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+a { text-decoration: none; }
+
+.btn-primary {
+  background-color: var(--brand-blue);
+  border-color: var(--brand-blue);
+}
+.btn-primary:hover, .btn-primary:focus {
+  background-color: var(--brand-blue-dark);
+  border-color: var(--brand-blue-dark);
+}
+
+.text-muted-soft { color: var(--text-muted); }

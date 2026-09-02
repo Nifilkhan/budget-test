@@ -1,0 +1,126 @@
+<div class="dashboard-layout">
+  <nav class="navbar navbar-light bg-white border-bottom d-lg-none px-3">
+    <span class="mobile-brand">Budget</span>
+    <button class="navbar-toggler" type="button" (click)="toggleSidebar()">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </nav>
+
+  <div class="d-flex">
+    <aside class="sidebar bg-white" [class.sidebar--open]="sidebarOpen">
+      <div class="sidebar-brand d-none d-lg-block">Budget</div>
+
+      <nav class="sidebar-nav">
+        <a href="javascript:void(0)" class="sidebar-link active">
+          <i class="bi bi-grid-1x2-fill me-2"></i> Dashboard
+        </a>
+      </nav>
+
+      <div class="sidebar-footer mt-auto">
+        <div class="d-flex align-items-center mb-3">
+          <div class="avatar-circle me-2">
+            <img
+              src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80"
+              alt="Catherine"
+            />
+          </div>
+          <div>
+            <div class="user-name">Catherine</div>
+            <div class="user-phone">{{ userEmail || '+91 9876543210' }}</div>
+          </div>
+        </div>
+        <button class="logout-btn" (click)="logout()">
+          <i class="bi bi-box-arrow-left me-2"></i> Log Out
+        </button>
+      </div>
+    </aside>
+
+    @if (sidebarOpen) {
+      <div class="sidebar-backdrop d-lg-none" (click)="toggleSidebar()"></div>
+    }
+
+    <main class="dashboard-main flex-grow-1 p-3 p-md-4 p-lg-5">
+      <h1 class="page-title">Dashboard</h1>
+      <p class="page-subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+
+      <div class="support-alert d-flex gap-3 align-items-center">
+        <div class="d-flex align-items-center">
+          <span class="alert-icon me-2"><i class="bi bi-info"></i></span>
+          <span class="alert-text">
+            You Have <strong>32 Support Request</strong> Pending for Response
+          </span>
+        </div>
+        <a href="javascript:void(0)" class="alert-view">View</a>
+      </div>
+
+      <div class="row g-3 g-lg-4 mb-4 mt-1">
+        @for (card of statCards; track $index) {
+          <div class="col-6 col-lg-3">
+            <div class="stat-card" [class.stat-card--teal]="card.variant === 'teal'">
+              <div class="stat-label">{{ card.label }}</div>
+              <div class="stat-value">{{ card.value }}</div>
+              <div class="stat-footer">
+                <span class="stat-badge">
+                  {{ card.changePercent }}
+                  <span class="stat-badge-icon"><i class="bi bi-arrow-up-short"></i></span>
+                </span>
+                <span class="stat-since">Since last month</span>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+
+      <h2 class="section-title">Recently Active Users</h2>
+
+      <div class="table-card">
+        <div class="table-responsive">
+          <table class="table align-middle mb-0">
+            <thead>
+              <tr>
+                <th>User ID/Name</th>
+                <th>Phone Number</th>
+                <th>Transaction Category</th>
+                <th>Transaction Amount</th>
+                <th>Account Type</th>
+                <th>Balance Amount</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (user of activeUsers; track $index) {
+                <tr>
+                  <td>
+                    <div class="user-cell-name">{{ user.name }}</div>
+                    <div class="user-cell-id">ID {{ user.id }}</div>
+                  </td>
+                  <td class="user-secondary">{{ user.phone }}</td>
+                  <td>
+                    <div class="category-cell">
+                      <span class="category-main">
+                        {{ user.category.split('/')[0].trim() }}
+                      </span>
+
+                      <span class="category-sub">
+                        {{ user.category.split('/')[1]?.trim() }}
+                      </span>
+                    </div>
+                  </td>
+                  <td class="user-cell-name">{{ user.amount }}</td>
+                  <td class="user-secondary">{{ user.accountType }}</td>
+                  <td class="user-cell-name">{{ user.balance }}</td>
+                  <td class="text-end">
+                    <a href="javascript:void(0)" class="row-view-link">View</a>
+                  </td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+        <div class="text-center py-3">
+          <button class="view-all-btn">View All</button>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
