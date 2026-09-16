@@ -1,0 +1,125 @@
+<main class="user-form-page">
+  <div class="user-form-shell">
+    <header class="user-form-header">
+      <div>
+        <a class="back-link" routerLink="/dashboard">
+          <i class="bi bi-arrow-left" aria-hidden="true"></i>
+          Back to Dashboard
+        </a>
+        <h1>Add User</h1>
+        <p>Add a new user and their account details.</p>
+      </div>
+    </header>
+
+    <form class="user-form-card" (submit)="$event.preventDefault(); submit()" novalidate>
+      <div class="form-grid">
+        <div class="form-field">
+          <label for="user-name">User Name</label>
+          <input
+            id="user-name"
+            type="text"
+            placeholder="Enter user name"
+            [value]="userName()"
+            [class.is-invalid]="hasError('userName')"
+            (input)="updateField('userName', $any($event.target).value)"
+            (blur)="markTouched('userName')"
+          />
+          @if (hasError('userName')) {
+            <small class="field-error">User name is required.</small>
+          }
+        </div>
+
+        <div class="form-field">
+          <label for="phone-number">Phone Number</label>
+          <input
+            id="phone-number"
+            type="tel"
+            placeholder="Enter phone number"
+            [value]="phoneNumber()"
+            [class.is-invalid]="hasError('phoneNumber')"
+            (input)="updateField('phoneNumber', $any($event.target).value)"
+            (blur)="markTouched('phoneNumber')"
+          />
+          @if (hasError('phoneNumber')) {
+            <small class="field-error">Enter a valid phone number.</small>
+          }
+        </div>
+
+        <div class="form-field">
+          <label for="transaction-category">Transaction Category</label>
+          <select
+            id="transaction-category"
+            [value]="transactionCategory()"
+            [class.is-invalid]="hasError('transactionCategory')"
+            (change)="updateField('transactionCategory', $any($event.target).value)"
+            (blur)="markTouched('transactionCategory')"
+          >
+            <option value="">Select category</option>
+            <option value="Food">Food</option>
+            <option value="Shopping">Shopping</option>
+            <option value="Bills">Bills</option>
+            <option value="Entertainment">Entertainment</option>
+            <option value="Transport">Transport</option>
+          </select>
+          @if (hasError('transactionCategory')) {
+            <small class="field-error">Select a transaction category.</small>
+          }
+        </div>
+
+        <div class="form-field">
+          <label for="account-type">Account Type</label>
+          <select
+            id="account-type"
+            [value]="accountType()"
+            [class.is-invalid]="hasError('accountType')"
+            (change)="updateField('accountType', $any($event.target).value)"
+            (blur)="markTouched('accountType')"
+          >
+            <option value="">Select account type</option>
+            <option value="Savings">Savings</option>
+            <option value="Current">Current</option>
+          </select>
+          @if (hasError('accountType')) {
+            <small class="field-error">Select an account type.</small>
+          }
+        </div>
+
+        <div class="form-field form-field--full">
+          <label for="balance-amount">Balance Amount</label>
+          <div class="amount-input">
+            <span aria-hidden="true">₹</span>
+            <input
+              id="balance-amount"
+              type="number"
+              min="0"
+              step="0.01"
+              placeholder="0.00"
+              [value]="balanceAmount()"
+              [class.is-invalid]="hasError('balanceAmount')"
+              (input)="updateField('balanceAmount', $any($event.target).value)"
+              (blur)="markTouched('balanceAmount')"
+            />
+          </div>
+          @if (hasError('balanceAmount')) {
+            <small class="field-error">Enter a balance of zero or more.</small>
+          }
+        </div>
+      </div>
+
+      @if (saved()) {
+        <p class="success-message" role="status">
+          <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
+          User details are ready to be saved.
+        </p>
+      }
+
+      <div class="form-actions">
+        <button type="button" class="cancel-btn" (click)="cancel()">Cancel</button>
+        <button type="submit" class="save-btn">
+          <i class="bi bi-check2" aria-hidden="true"></i>
+          Save User
+        </button>
+      </div>
+    </form>
+  </div>
+</main>

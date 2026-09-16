@@ -127,8 +127,52 @@
   color: var(--text-dark);
 }
 
-.page-subtitle {
+.dashboard-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
   margin-bottom: 20px;
+}
+
+.add-user-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex-shrink: 0;
+
+  min-height: 40px;
+  padding: 8px 18px;
+
+  border: 1px solid var(--brand-blue);
+  border-radius: 7px;
+
+  background-color: var(--brand-blue);
+  color: #fff;
+
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease;
+
+  &:hover,
+  &:focus-visible {
+    border-color: var(--brand-blue-dark);
+    background-color: var(--brand-blue-dark);
+  }
+
+  &:focus-visible {
+    outline: 3px solid rgba(47, 107, 255, 0.25);
+    outline-offset: 2px;
+  }
+}
+
+.page-subtitle {
+  margin-bottom: 0;
 
   color: var(--text-muted);
   font-size: 0.9rem;
@@ -257,7 +301,6 @@
   color: var(--text-dark);
 }
 
-
 .table-card {
   width: 100%;
 
@@ -267,7 +310,6 @@
   border-radius: 12px;
 
   background-color: #fff;
-
 }
 
 .table-responsive {
@@ -279,7 +321,6 @@
 
   -webkit-overflow-scrolling: touch;
 }
-
 
 .table {
   width: 100%;
@@ -330,7 +371,6 @@
   }
 }
 
-
 .user-cell-name {
   font-weight: 700;
 }
@@ -346,7 +386,6 @@
   color: #1f1e1e;
   font-weight: 500;
 }
-
 
 .category-cell {
   display: flex;
@@ -365,7 +404,6 @@
   font-size: 0.78rem;
 }
 
-
 .row-view-link {
   color: var(--text-dark);
 
@@ -380,8 +418,6 @@
 .table tbody tr:hover .row-view-link {
   opacity: 1;
 }
-
-
 
 .view-all-btn {
   padding: 7px 28px;
@@ -402,9 +438,7 @@
   }
 }
 
-
 @media (max-width: 991.98px) {
-
   .sidebar {
     position: fixed;
 
@@ -439,7 +473,6 @@
     z-index: 1040;
   }
 
- 
   .support-alert {
     width: 100%;
   }
@@ -450,13 +483,22 @@
 }
 
 @media (max-width: 575.98px) {
-
   .dashboard-main {
     padding: 20px 15px !important;
   }
 
   .page-title {
     font-size: 20px;
+  }
+
+  .dashboard-header {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .add-user-btn {
+    width: 100%;
   }
 
   .page-subtitle {

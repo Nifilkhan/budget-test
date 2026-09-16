@@ -5,12 +5,17 @@ export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   {
     path: 'login',
-    loadComponent: () => import('../features/login/login').then((m) => m.Login)
+    loadComponent: () => import('../features/login/login').then((m) => m.Login),
   },
   {
     path: 'dashboard',
     canActivate: [AuthGuard],
-    loadComponent: () => import('../features/dashboard/dashboard').then((m) => m.Dashboard)
+    loadComponent: () => import('../features/dashboard/dashboard').then((m) => m.Dashboard),
   },
-  { path: '**', redirectTo: 'login' }
+  {
+    path: 'user-form',
+    canActivate: [AuthGuard],
+    loadComponent: () => import('../features/user-form/user-form').then((m) => m.UserForm),
+  },
+  { path: '**', redirectTo: 'login' },
 ];

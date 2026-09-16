@@ -7,7 +7,7 @@
   </nav>
 
   <div class="d-flex">
-    <aside class="sidebar bg-white" [class.sidebar--open]="sidebarOpen">
+    <aside class="sidebar bg-white" [class.sidebar--open]="sidebarOpen()">
       <div class="sidebar-brand d-none d-lg-block">Budget</div>
 
       <nav class="sidebar-nav">
@@ -26,7 +26,7 @@
           </div>
           <div>
             <div class="user-name">Catherine</div>
-            <div class="user-phone">{{ userEmail || '+91 9876543210' }}</div>
+            <div class="user-phone">{{ userEmail() || '+91 9876543210' }}</div>
           </div>
         </div>
         <button class="logout-btn" (click)="logout()">
@@ -35,13 +35,21 @@
       </div>
     </aside>
 
-    @if (sidebarOpen) {
+    @if (sidebarOpen()) {
       <div class="sidebar-backdrop d-lg-none" (click)="toggleSidebar()"></div>
     }
 
     <main class="dashboard-main flex-grow-1 p-3 p-md-4 p-lg-5">
-      <h1 class="page-title">Dashboard</h1>
-      <p class="page-subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      <div class="dashboard-header">
+        <div>
+          <h1 class="page-title">Dashboard</h1>
+          <p class="page-subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+        <button type="button" class="add-user-btn" [routerLink]="['/user-form']">
+          <i class="bi bi-plus-lg" aria-hidden="true"></i>
+          <span>Add User</span>
+        </button>
+      </div>
 
       <div class="support-alert d-flex gap-3 align-items-center">
         <div class="d-flex align-items-center">
@@ -72,6 +80,8 @@
       </div>
 
       <h2 class="section-title">Recently Active Users</h2>
+      <p class="section-subtitle">Total Active Users: {{ totalUsers() }}</p>
+      <p class="section-subtitle">Savings Accounts: {{ savingsAccounts() }}</p>
 
       <div class="table-card">
         <div class="table-responsive">
@@ -88,7 +98,7 @@
               </tr>
             </thead>
             <tbody>
-              @for (user of activeUsers; track $index) {
+              @for (user of activeUsers(); track $index) {
                 <tr>
                   <td>
                     <div class="user-cell-name">{{ user.name }}</div>
