@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import { Component, computed, signal } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 
@@ -11,7 +11,7 @@ type FormField =
 
 @Component({
   selector: 'app-user-form',
-  imports: [CommonModule, RouterLink],
+  imports: [RouterLink],
   templateUrl: './user-form.html',
   styleUrl: './user-form.scss',
 })
